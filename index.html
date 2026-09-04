@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10151b">
+  <title>Emoji Sequence Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <section id="start-screen" class="screen intro-screen" aria-labelledby="game-title">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Memory sprint / 50 tiles</div>
+      <h1 id="game-title">Emoji<br><em>Sequence</em><br>Challenge</h1>
+      <p class="intro-copy">Spot the pattern. Tap <span class="emoji-inline">😠</span> only when it follows <span class="emoji-inline">😊</span>.</p>
+      <div class="rule-strip" aria-label="Game rules">
+        <div><strong>+2</strong><span>correct target</span></div>
+        <div><strong>-1</strong><span>wrong click</span></div>
+        <div><strong>50</strong><span>tiles total</span></div>
+      </div>
+      <button id="start-button" class="primary-button" type="button">Start game <span aria-hidden="true">↗</span></button>
+      <p class="keyboard-note">Press <kbd>Enter</kbd> or <kbd>Space</kbd> to start</p>
+    </section>
+
+    <section id="game-screen" class="screen game-screen" hidden aria-labelledby="game-heading">
+      <header class="game-header">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Live sequence</div>
+          <h2 id="game-heading">Stay sharp<span class="accent">.</span></h2>
+        </div>
+        <div class="score-block"><span>Score</span><strong id="score">0</strong></div>
+      </header>
+
+      <div class="progress-row">
+        <span id="tile-count">Tile 0 / 50</span>
+        <span id="speed-label">Starting pace</span>
+      </div>
+      <div class="progress-track" aria-label="Game progress"><div id="progress-bar" class="progress-bar"></div></div>
+
+      <div class="tile-stage">
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <button id="emoji-tile" class="emoji-tile" type="button" aria-label="Current emoji" disabled></button>
+        <p id="hint" class="hint">Watch the sequence</p>
+      </div>
+
+      <footer class="stats-row" aria-label="Game statistics">
+        <div><span class="stat-mark positive">+</span><span id="correct">0</span><small>Correct</small></div>
+        <div><span class="stat-mark negative">−</span><span id="wrong">0</span><small>Wrong</small></div>
+        <div><span class="stat-mark neutral">◷</span><span id="timer">2.0s</span><small>Tile pace</small></div>
+      </footer>
+      <aside class="how-to-play" aria-label="How to play">
+        <strong>How to play</strong>
+        <span>Click <b>😠</b> only when it immediately follows <b>😊</b>.</span>
+      </aside>
+    </section>
+
+    <section id="result-screen" class="screen result-screen" hidden aria-labelledby="result-heading">
+      <div class="result-badge">Sequence complete</div>
+      <h2 id="result-heading">Game<br><em>complete.</em></h2>
+      <div class="final-score"><span>Total score</span><strong id="final-score">0</strong></div>
+      <div class="result-grid">
+        <div><strong id="final-correct">0</strong><span>Correct tiles</span></div>
+        <div><strong id="final-wrong">0</strong><span>Wrong clicks</span></div>
+        <div><strong id="final-accuracy">0.0%</strong><span>Accuracy</span></div>
+      </div>
+      <button id="again-button" class="primary-button" type="button">Play again <span aria-hidden="true">↗</span></button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
